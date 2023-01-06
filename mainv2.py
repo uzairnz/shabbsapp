@@ -21,8 +21,8 @@ st.write("""
 st.sidebar.header('User Input Parameters  :chart_with_upwards_trend:')
 
 # Get time for calander widget
-# time = pd.to_datetime('now', utc=True)
-# today = datetime.date.today()
+time = pd.to_datetime('now', utc=True)
+today = datetime.date.today()
 
 # Get user input using streamlit widgets
 def user_input_features():
@@ -37,13 +37,24 @@ def user_input_features():
     interval = st.sidebar.selectbox("Select an interval:", ['1m', '2m', '5m', '15m', '30m', '60m', '90m', '1h', '1d', '5d', '1wk', '1mo', '3mo'], index=8)
     return ticker, time_frame, interval
 
+
 # Some basic opperations to assign date and split input string for symbol
 symbol, time_frame, interval = user_input_features()
 symbol = symbol.split(",")
 
+#Yesterday Button
+if st.sidebar.button('Yesterday'):
+    yesterday = datetime.date.today() - datetime.timedelta(days=1)
+    day_before = datetime.date.today() - datetime.timedelta(days=2)
+    start_date = day_before
+    end_date = yesterday
+    data = yf.download(symbol,start_date,end_date, interval='1m')
+    st.sidebar.write("Dates set to Yesterday")
+else:
+    # Read data
+    data = yf.download(symbol,period =time_frame,interval=interval)
 
-# Read data
-data = yf.download(symbol,period =time_frame,interval=interval)
+
 
 
 # Calculate Moving Average 
