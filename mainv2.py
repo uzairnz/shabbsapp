@@ -27,6 +27,9 @@ st.sidebar.header('User Input Parameters  :chart_with_upwards_trend:')
 # Get user input using streamlit widgets
 def user_input_features():
     ticker = st.sidebar.text_input("Enter tickers saperated by commas: ", 'AAPL,AMZN,TSLA,NVDA,AMD')
+    db = yf.download(ticker,period ='1d',interval='1d')
+    st.write("""## Yesterday Closing Price""")
+    st.write(db.Close)
     # start_date = st.sidebar.date_input("Start Date", pd.to_datetime('2019-01-01'))
     # end_date = st.sidebar.date_input("End Date", pd.to_datetime(today))
     # Get the time frame and interval from the user
