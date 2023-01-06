@@ -44,8 +44,8 @@ symbol = symbol.split(",")
 
 #Yesterday Button
 if st.sidebar.button('Yesterday'):
-    yesterday = datetime.date.today() - datetime.timedelta(days=1)
-    day_before = datetime.date.today() - datetime.timedelta(days=2)
+    yesterday = datetime.date.today() - datetime.timedelta(days=0)
+    day_before = datetime.date.today() - datetime.timedelta(days=1)
     start_date = day_before
     end_date = yesterday
     data = yf.download(symbol,start_date,end_date, interval='1m')
