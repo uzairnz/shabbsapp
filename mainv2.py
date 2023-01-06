@@ -30,7 +30,7 @@ def user_input_features():
     # start_date = st.sidebar.date_input("Start Date", pd.to_datetime('2019-01-01'))
     # end_date = st.sidebar.date_input("End Date", pd.to_datetime(today))
     # Get the time frame and interval from the user
-    time_frame = st.sidebar.selectbox("Select a time frame:", ['1d', '5d', '7d', '14d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max'])
+    time_frame = st.sidebar.selectbox("Select a time frame:", ['1d', '2d','5d', '7d', '14d', '1mo', '3mo', '6mo', '1y', '2y', '5y', '10y', 'ytd', 'max'])
     interval = st.sidebar.selectbox("Select an interval:", ['1m', '2m', '5m', '15m', '30m', '60m', '90m', '1h', '1d', '5d', '1wk', '1mo', '3mo'])
     return ticker, time_frame, interval
 
