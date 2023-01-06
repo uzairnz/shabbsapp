@@ -54,7 +54,8 @@ else:
     # Read data
     data = yf.download(symbol,period =time_frame,interval=interval)
 
-
+if st.sidebar.button('Reset'):
+    data = yf.download(symbol,period =time_frame,interval=interval)
 
 
 # Calculate Moving Average 
