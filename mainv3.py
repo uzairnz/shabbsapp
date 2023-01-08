@@ -3,7 +3,6 @@ import datetime
 import streamlit as st
 import pandas as pd
 import yfinance as yf
-from bokeh.plotting import figure
 import  streamlit_toggle as tog
 
 # App Info
@@ -106,6 +105,3 @@ st.line_chart(data.Volume)
 st.write("""## Moving Average Chart""")
 st.line_chart(ma.Close)
 st.write(data)
-
-
-
