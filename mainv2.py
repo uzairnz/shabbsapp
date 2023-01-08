@@ -3,7 +3,6 @@ import datetime
 import streamlit as st
 import pandas as pd
 import yfinance as yf
-from bokeh.plotting import figure
 import  streamlit_toggle as tog
 
 # App Info
